@@ -13,6 +13,8 @@ float yvel;
 
 PImage map;
 
+int currentindex=0;
+
 String[] city = {"Seoul", " Washington D.C.", "Ottawa", "Berlin", "Tokyo", "Beijing", "Bangkok", "Hanoi", "Jakarta", "Manila", "Colombo", "Kathmandu", "New Delhi", "Brasília", "Wellington", "Paris", "Lisbon", "Cairo", "Jerusalem", "London" };
 
 void setup()
@@ -38,6 +40,20 @@ void draw()
   cities();
 }
 
+void keyReleased()
+{
+  if (key==' ')
+  {
+    currentindex++;
+  }
+  
+  if (key=='x')
+  {
+    currentindex=0;
+  }
+}
+
+
 void cities()
 {
   textSize(16);
@@ -48,47 +64,47 @@ void cities()
     ellipse(x1[i]-50, y1[i], 200, 50);
     fill(0, 0, 0);
     text(city[i], x1[i]-100, y1[i]+5);
-    if (key=='e')
-    {
-      x1[i]+=xvel;
-      y1[i]-=yvel;
-    }
+  }
+  if (key=='e')
+  {
+    x1[currentindex]+=xvel;
+    y1[currentindex]-=yvel;
+  }
 
-    if (key=='z')
-    {
-      x1[i]-=xvel;
-      y1[i]+=yvel;
-    }
-    if (key=='w')
-    {
-      x1[i]+=0;
-      y1[i]-=yvel;
-    }
+  if (key=='z')
+  {
+    x1[currentindex]-=xvel;
+    y1[currentindex]+=yvel;
+  }
+  if (key=='w')
+  {
+    x1[currentindex]+=0;
+    y1[currentindex]-=yvel;
+  }
 
-    if (key=='a')
-    {
-      x1[i]-=xvel;
-      y1[i]-=0;
-    }
-    if (key=='s')
-    {
-      x1[i]-=0;
-      y1[i]+=yvel;
-    }
-    if (key=='d')
-    {
-      x1[i]+=xvel;
-      y1[i]-=0;
-    }
-    if (key=='q')
-    {
-      x1[i]-=xvel;
-      y1[i]-=yvel;
-    }
-    if (key=='c')
-    {
-      x1[i]+=xvel;
-      y1[i]+=yvel;
-    }
+  if (key=='a')
+  {
+    x1[currentindex]-=xvel;
+    y1[currentindex]-=0;
+  }
+  if (key=='s')
+  {
+    x1[currentindex]-=0;
+    y1[currentindex]+=yvel;
+  }
+  if (key=='d')
+  {
+    x1[currentindex]+=xvel;
+    y1[currentindex]-=0;
+  }
+  if (key=='q')
+  {
+    x1[currentindex]-=xvel;
+    y1[currentindex]-=yvel;
+  }
+  if (key=='c')
+  {
+    x1[currentindex]+=xvel;
+    y1[currentindex]+=yvel;
   }
 }
